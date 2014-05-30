@@ -890,6 +890,9 @@ class MDFContext(object):
             if len(ctx._timer_stack) > 0:
                 timer = ctx._pause_current_timer(stop_time)
 
+        if isinstance(node, basestring):
+            node = eval(node)
+
         assert isinstance(node, MDFNode), "Attempted to get value of a non-node object"
         
         try:
